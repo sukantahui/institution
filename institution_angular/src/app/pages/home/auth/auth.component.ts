@@ -35,7 +35,6 @@ export class AuthComponent implements OnInit {
   }
 
   loginUser(){
-        const authObservable = new Observable<AuthResponseData>();
         // converting password to MD5
         const md5 = new Md5();
         const passwordMd5 = md5.appendStr(this.loginForm.value.password).end();
@@ -45,7 +44,7 @@ export class AuthComponent implements OnInit {
             if (response.success === 1){
                 // tslint:disable-next-line:triple-equals
                 if (response.data.user.userTypeId == 1){
-                    this.router.navigate(['/cPanel']).then(r => {});
+                    this.router.navigate(['/owner']).then(r => {});
                 }
                 // tslint:disable-next-line:triple-equals
                 if (response.data.user.userTypeId == 2){

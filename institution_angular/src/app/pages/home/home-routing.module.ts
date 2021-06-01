@@ -10,6 +10,11 @@ const routes: Routes = [
                                 loadChildren: () => import('./child-pages/print-demo/print-demo.module')
                                     .then(mod => mod.PrintDemoModule)
                               },
+                              {
+                                  path: 'owner',
+                                  loadChildren: () => import('./child-pages/owner/owner.module')
+                                        .then(mod => mod.OwnerModule)
+                               },
                             ]
                           }
                       ];

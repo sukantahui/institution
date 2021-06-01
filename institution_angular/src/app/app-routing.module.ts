@@ -16,9 +16,9 @@ const routes: Routes = [
   { path: 'top', loadChildren: () => import('./pages/home/top/top.module').then(m => m.TopModule) },
 
   { path: 'about', loadChildren: () => import('./pages/home/about/about.module').then(m => m.AboutModule) },
-  { path: 'auth', loadChildren: () => import('./pages/home/auth/auth.module').then(m => m.AuthModule) },
-  { path: '404', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule) },
-  { path: '**', redirectTo: '/404'}
+  // { path: 'auth', loadChildren: () => import('./pages/home/auth/auth.module').then(m => m.AuthModule) },
+  // { path: '404', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule) },
+  // { path: '**', redirectTo: '/404'}
 ];
 
 @NgModule({
