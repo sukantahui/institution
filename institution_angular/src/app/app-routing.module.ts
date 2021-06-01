@@ -16,6 +16,10 @@ const routes: Routes = [
   { path: 'top', loadChildren: () => import('./pages/home/top/top.module').then(m => m.TopModule) },
 
   { path: 'about', loadChildren: () => import('./pages/home/about/about.module').then(m => m.AboutModule) },
+
+  { path: 'MenuPublic', loadChildren: () => import('./pages/home/menu/menu-public/menu-public.module').then(m => m.MenuPublicModule) },
+
+  { path: 'MenuOwner', loadChildren: () => import('./pages/home/menu/menu-owner/menu-owner.module').then(m => m.MenuOwnerModule) },
   // { path: 'auth', loadChildren: () => import('./pages/home/auth/auth.module').then(m => m.AuthModule) },
   // { path: '404', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule) },
   // { path: '**', redirectTo: '/404'}

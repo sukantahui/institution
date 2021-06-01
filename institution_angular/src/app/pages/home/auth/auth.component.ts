@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Md5} from "ts-md5";
+import {Md5} from 'ts-md5';
 import {AuthResponseData, AuthService} from "../../../services/auth.service";
 import {Observable} from "rxjs";
 import Swal from 'sweetalert2';
@@ -43,7 +43,7 @@ export class AuthComponent implements OnInit {
         this.authService.login({loginId: this.loginForm.value.email, loginPassword: passwordMd5}).subscribe(response => {
             if (response.success === 1){
                 // tslint:disable-next-line:triple-equals
-                if (response.data.user.userTypeId == 1){
+                if (response.data.user.isOwner){
                     this.router.navigate(['/owner']).then(r => {});
                 }
                 // tslint:disable-next-line:triple-equals

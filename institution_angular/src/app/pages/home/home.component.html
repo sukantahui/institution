@@ -2,21 +2,18 @@
 
 <mat-drawer-container class="example-container" autosize style="background-color: #bebebf;">
     <mat-drawer #drawer  mode="side" opened="false" position="end">
+        <button (click)="logout()" class="logout-button coder-fab"  mat-fab><i class="ri-shut-down-line"></i></button>
         <a (click)="drawer.toggle()" class="menu-toggle rounded" [routerLink]=""><i class="bi bi-list" ></i></a>
 
         <br><br><br>
-        <div class="menu" id="menu-public">
-            <app-auth></app-auth>
-            <a [routerLink]>Login <i class="icon-login"></i></a>
-        </div>
-            <!--        menu for admin-->
-        <div class="menu" id="menu-admin">
-            <a [routerLink] (click)="logout()">Logout <i class="icon-login"></i></a>
-        </div>
+        I am here
+        <app-menu></app-menu>
 
     </mat-drawer>
 
     <a (click)="drawer.toggle()" class="menu-toggle rounded" [routerLink]=""><i class="bi bi-list" ></i></a>
+<!--    <a class="logout-button" [routerLink]=""><i class="ri-shut-down-line"></i></a>-->
+
 
 <!--    <div class="example-sidenav-content">-->
 <!--        <button type="button" mat-button (click)="drawer.toggle()">-->

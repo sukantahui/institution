@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs';
 import { Title, Meta, MetaDefinition } from '@angular/platform-browser';
 import {CanonicalService} from './services/canonical.service';
 import {CommonService} from './services/common.service';
+import {AuthService} from './services/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -37,10 +38,13 @@ export class AppComponent implements OnInit, OnDestroy{
               // tslint:disable-next-line:align
               , private canonicalService: CanonicalService
               // tslint:disable-next-line:align
-              , private commonService: CommonService){
+              , private commonService: CommonService
+              // tslint:disable-next-line:align
+              , private authService: AuthService){
 
   }
   ngOnInit(): void {
+    this.authService.autoLogin();
     this.canonicalService.setCanonicalURL();
     this.pageTitle.setTitle(this.title);
     this.metaService.addTags([

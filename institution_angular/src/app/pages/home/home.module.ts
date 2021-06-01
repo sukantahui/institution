@@ -8,6 +8,8 @@ import {AboutModule} from './about/about.module';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
 import {AuthModule} from './auth/auth.module';
+import {MenuModule} from './menu/menu.module';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -18,13 +20,14 @@ import {AuthModule} from './auth/auth.module';
   exports: [
     HomeComponent
   ],
-  imports: [
-    HomeRoutingModule,
-    TopModule,
-    AboutModule,
-    MatSidenavModule,
-    MatCardModule,
-    AuthModule
-  ]
+    imports: [
+        HomeRoutingModule,
+        TopModule,
+        AboutModule,
+        MatSidenavModule,
+        MatCardModule,
+        MenuModule,
+        MatButtonModule
+    ]
 })
 export class HomeModule { }

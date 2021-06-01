@@ -16,7 +16,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 
 import {NgxPrinterModule} from 'ngx-printer';
-import {HomeModule} from "./pages/home/home.module";
+import {HomeModule} from './pages/home/home.module';
 // import {NgxPrintModule} from "ngx-print";
 
 

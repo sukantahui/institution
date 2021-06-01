@@ -34,6 +34,13 @@ export class AuthService {
       return false;
     }
   }
+  isOwner(){
+    if (this.userBehaviorSubject.value && this.userBehaviorSubject.value.isOwner){
+      return true;
+    }else{
+      return false;
+    }
+  }
   isAdmin(){
     if (this.userBehaviorSubject.value && this.userBehaviorSubject.value.isAdmin){
      return true;
@@ -48,19 +55,17 @@ export class AuthService {
       return false;
     }
   }
-  isStockist(): boolean{
-    if (this.userBehaviorSubject.value && this.userBehaviorSubject.value.isStockist){
-      return true;
-    }else{
-      return false;
-    }
-  }
 
-  isTerminal(): boolean{
-    if (this.userBehaviorSubject.value && this.userBehaviorSubject.value.isTerminal){
-      return true;
-    }else{
-      return false;
+  autoLogin(){
+    // tslint:disable-next-line:max-line-length
+    const userData: User = JSON.parse(localStorage.getItem('user'));
+    if (!userData){
+      return;
+    }
+    // tslint:disable-next-line:max-line-length
+    const loadedUser = new User(userData.uniqueId, userData.userName, userData._authKey, userData.userTypeId, userData.userTypeName);
+    if (loadedUser.authKey){
+      this.userBehaviorSubject.next(loadedUser);
     }
   }
 

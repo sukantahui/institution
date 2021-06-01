@@ -32,13 +32,15 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         //person_types table data
         UserType::create(['user_type_name' => 'Owner']);
-        UserType::create(['user_type_name' => 'Manager']);
-        UserType::create(['user_type_name' => 'Manager Sales']);
-        UserType::create(['user_type_name' => 'Manager Accounts']);
-        UserType::create(['user_type_name' => 'Office Staff']);
-        UserType::create(['user_type_name' => 'Worker']);
         UserType::create(['user_type_name' => 'Developer']);
-        UserType::create(['user_type_name' => 'Customer']);
+        UserType::create(['user_type_name' => 'Admin']);
+        UserType::create(['user_type_name' => 'Manager']);
+        UserType::create(['user_type_name' => 'Worker']);
+        UserType::create(['user_type_name' => 'Accountant']);
+        UserType::create(['user_type_name' => 'Office Staff']);
+
+
+        UserType::create(['user_type_name' => 'Student']);
 
 
         User::create(['user_name'=>'Arindam Biswas','mobile1'=>'9836444999','mobile2'=>'100'

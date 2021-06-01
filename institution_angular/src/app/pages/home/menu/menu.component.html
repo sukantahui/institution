@@ -1,0 +1,6 @@
+
+<app-menu-public *ngIf="!authService.isAuthenticated()"></app-menu-public>
+<div *ngIf="authService.isAuthenticated()">
+<app-menu-owner></app-menu-owner>
+</div>
+<a [routerLink] (click)="logout()">Logout <i class="icon-login"></i></a>
