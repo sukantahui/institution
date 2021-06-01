@@ -42,7 +42,24 @@ export class AuthComponent implements OnInit {
         // const formPassword = form.value.password;
 
         this.authService.login({loginId: this.loginForm.value.email, loginPassword: passwordMd5}).subscribe(response => {
-            console.log(response);
+            if (response.success === 1){
+                // tslint:disable-next-line:triple-equals
+                if (response.data.user.userTypeId == 1){
+                    this.router.navigate(['/cPanel']).then(r => {});
+                }
+                // tslint:disable-next-line:triple-equals
+                if (response.data.user.userTypeId == 2){
+                    this.router.navigate(['/developer']).then(r => {});
+                }
+                // tslint:disable-next-line:triple-equals
+                if (response.data.user.userTypeId == 3){
+                    this.router.navigate(['/stockistCPanel']).then(r => {});
+                }
+                // tslint:disable-next-line:triple-equals
+                if (response.data.user.userTypeId == 4){
+                    this.router.navigate(['/terminal']).then(r => {});
+                }
+            }
         });
     }
 }
