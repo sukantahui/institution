@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { MenuOwnerRoutingModule } from './menu-owner-routing.module';
 import { MenuOwnerComponent } from './menu-owner.component';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import {MatMenuModule} from '@angular/material/menu';
     imports: [
         CommonModule,
         MenuOwnerRoutingModule,
-        MatMenuModule
+        MatMenuModule,
+        MatSidenavModule,
+        MatListModule
     ]
 })
 export class MenuOwnerModule { }

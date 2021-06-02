@@ -1,6 +1,4 @@
-
-
-<!--<nav class="navbar navbar-expand-lg navbar-light bg-dark">-->
+<!--<nav class="navbar navbar-expand-lg navbar-light">-->
 <!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
 <!--        <ul class="navbar-nav mr-auto">-->
 <!--            <li class="nav-item dropdown">-->
@@ -16,33 +14,52 @@
 <!--    </div>-->
 <!--</nav>-->
 
-<div>
-    <ul role="menubar">
-        <li *ngFor="let link of menu; let i = index;">
 
-            <a
-                    [attr.href]="link.href ? link.href : null"
-                    [attr.target]="link.target ? link.target : null"
-                    aria-role="menuitem"
-                    [attr.ariaExpanded]="link.navigationItems && openElements[i] ? true : null"
-                    [attr.ariaHasPopup]="link.navigationItems ? true : null"
-                    (click)="link.navigationItems ? openElements[i] = !openElements[i] : null"
-                    [class]="openElements[i] ? 'open' : null"
-            >
-                {{link.title}}
-            </a>
-
-            <ul *ngIf="link.navigationItems" role="menu">
-                <li *ngFor="let link of link.navigationItems">
-                    <a [attr.href]="link.url"
-                       [innerHTML]="link.title"
-                       [attr.target]="link.target ? link.target : null"
-                       role="menuitem"
-                    >
-                    </a>
+<div *ngFor="let link of menu; let i = index;">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a mat-raised-button color="warn" class="nav-link" [matMenuTriggerFor]="menu">{{link.title}}<i class="bi bi-caret-down-fill"></i></a>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item [routerLink]="['/customer']" routerLinkActive="MyActiveMenu">Customer</button>
+                        <button mat-menu-item [routerLink]="['/product']" routerLinkActive="MyActiveMenu">Product</button>
+                        <button mat-menu-item [routerLink]="['/rate']" routerLinkActive="MyActiveMenu">Rate</button>
+                        <button mat-menu-item [routerLink]="['/agent']" routerLinkActive="MyActiveMenu">Agent</button>
+                    </mat-menu>
                 </li>
             </ul>
-
-        </li>
-    </ul>
+        </div>
+    </nav>
 </div>
+
+<!--<nav class="navbar navbar-expand-lg navbar-light ">-->
+<!--    <ul role="menubar" class="navbar-nav mr-auto">-->
+<!--        <li *ngFor="let link of menu; let i = index;" class="nav-item dropdown">-->
+
+<!--            <a-->
+<!--                    [attr.href]="link.href ? link.href : null"-->
+<!--                    [attr.target]="link.target ? link.target : null"-->
+<!--                    aria-role="menuitem"-->
+<!--                    [attr.ariaExpanded]="link.navigationItems && openElements[i] ? true : null"-->
+<!--                    [attr.ariaHasPopup]="link.navigationItems ? true : null"-->
+<!--                    (click)="link.navigationItems ? openElements[i] = !openElements[i] : null"-->
+<!--                    [class]="openElements[i] ? 'open' : null"-->
+<!--            >-->
+<!--                {{link.title}}-->
+<!--            </a>-->
+
+<!--            <ul *ngIf="link.navigationItems" role="menu">-->
+<!--                <li *ngFor="let link of link.navigationItems">-->
+<!--                    <a [attr.href]="link.url"-->
+<!--                       [innerHTML]="link.title"-->
+<!--                       [attr.target]="link.target ? link.target : null"-->
+<!--                       role="menuitem"-->
+<!--                    >-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--            </ul>-->
+
+<!--        </li>-->
+<!--    </ul>-->
+<!--</nav>-->

@@ -18,24 +18,26 @@ export class MenuOwnerComponent implements OnInit {
   menu = [
     {
       title: 'Menu Item 1',
-      url: "/",
-      target: "_blank"
+      url: '/',
+      target: '_blank'
     },
     {
-      title: "Menu Item 2",
+      title: 'Menu Item 2',
       active: true,
       navigationItems: [
         {
-          title: "Sub-Menu Item 1",
-          url: "/"
+          title: 'Sub-Menu Item 1',
+          url: '/'
         },
         {
-          title: "Sub-Menu Item 2",
-          url: "/"
+          title: 'Sub-Menu Item 2',
+          url: '/'
         }
       ]
     }
   ];
+
+
   constructor() { }
 
   ngOnInit(): void {
