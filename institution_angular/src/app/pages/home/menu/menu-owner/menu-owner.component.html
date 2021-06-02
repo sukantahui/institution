@@ -15,12 +15,36 @@
 <!--</nav>-->
 
 
+<mat-toolbar color="primary">
+    TopNav Menu Navigation Example
+</mat-toolbar>
+<mat-toolbar class="menu-bar mat-elevation-z1">
+    <span *ngFor="let item of navItems">
+      <!-- Handle branch node buttons here -->
+      <span *ngIf="item.children && item.children.length > 0">
+        <button mat-button [matMenuTriggerFor]="menu.childMenu"
+                [disabled]="item.disabled">
+          {{item.displayName}}
+        </button>
+        <app-menu-item #menu [items]="item.children"></app-menu-item>
+      </span>
+        <!-- Leaf node buttons here -->
+      <span *ngIf="!item.children || item.children.length === 0">
+        <button mat-button color="primary" [routerLink]="item.route">
+          {{item.displayName}}
+        </button>
+      </span>
+    </span>
+</mat-toolbar>
+
 <div *ngFor="let link of menu; let i = index;">
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                    <a mat-raised-button color="warn" class="nav-link" [matMenuTriggerFor]="menu">{{link.title}}<i class="bi bi-caret-down-fill"></i></a>
+                    <a mat-raised-button color="warn" class="nav-link" [matMenuTriggerFor]="menu">{{link.title}}
+                        <i class="bi bi-caret-down-fill"></i>
+                    </a>
                     <mat-menu #menu="matMenu">
                         <button mat-menu-item [routerLink]="['/customer']" routerLinkActive="MyActiveMenu">Customer</button>
                         <button mat-menu-item [routerLink]="['/product']" routerLinkActive="MyActiveMenu">Product</button>

@@ -6,6 +6,8 @@ import { MenuOwnerComponent } from './menu-owner.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MenuItemModule} from '../menu-item/menu-item.module';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import {MatListModule} from '@angular/material/list';
         MenuOwnerRoutingModule,
         MatMenuModule,
         MatSidenavModule,
-        MatListModule
+        MatListModule,
+        MatToolbarModule,
+        MenuItemModule
     ]
 })
 export class MenuOwnerModule { }
