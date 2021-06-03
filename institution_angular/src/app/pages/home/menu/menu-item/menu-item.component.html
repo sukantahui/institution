@@ -6,18 +6,15 @@
     <!-- Handle branch node menu items -->
     <span *ngIf="child.children && child.children.length > 0">
       <button mat-menu-item color="primary" [matMenuTriggerFor]="menu.childMenu">
-<!--        <mat-icon>{{child.iconName}}</mat-icon>-->
-          <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+        <mat-icon>{{child.iconName}}</mat-icon>
         <span>{{child.displayName}}</span>
       </button>
       <app-menu-item #menu [items]="child.children"></app-menu-item>
     </span>
-      <!-- Handle leaf node menu items -->
+    <!-- Handle leaf node menu items -->
     <span *ngIf="!child.children || child.children.length === 0">
       <button mat-menu-item [routerLink]="child.route">
-<!--        <mat-icon>{{child.iconName}}</mat-icon>-->
-        <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
-
+        <mat-icon>{{child.iconName}}</mat-icon>
         <span>{{child.displayName}}</span>
       </button>
     </span>

@@ -15,69 +15,47 @@ export interface NavItem {
 })
 export class MenuOwnerComponent implements OnInit {
   openElements: boolean[] = [];
-  menu = [
-    {
-      title: 'Menu Item 1',
-      url: '/',
-      target: '_blank'
-    },
-    {
-      title: 'Menu Item 2',
-      active: true,
-      navigationItems: [
-        {
-          title: 'Sub-Menu Item 1',
-          url: '/'
-        },
-        {
-          title: 'Sub-Menu Item 2',
-          url: '/'
-        }
-      ]
-    }
-  ];
-
   navItems: NavItem[] = [
     {
       displayName: 'DevFestFL',
-      iconName: 'bi-bookmark-check-fill',
+      iconName: 'close',
       children: [
         {
           displayName: 'Speakers',
-          iconName: 'bi-bookmark-check-fill',
+          iconName: 'group',
           children: [
             {
               displayName: 'Michael Prentice',
-              iconName: 'bi-bookmark-check-fill',
+              iconName: 'person',
               route: 'michael-prentice',
               children: [
                 {
                   displayName: 'Create Enterprise UIs',
-                  iconName: 'bi-bookmark-check-fill',
+                  iconName: 'star_rate',
                   route: 'material-design'
                 }
               ]
             },
             {
               displayName: 'Stephen Fluin',
-              iconName: 'bi-bookmark-check-fill',
+              iconName: 'person',
               route: 'stephen-fluin',
               children: [
                 {
                   displayName: 'What\'s up with the Web?',
-                  iconName: 'bi-bookmark-check-fill',
+                  iconName: 'star_rate',
                   route: 'what-up-web'
                 }
               ]
             },
             {
               displayName: 'Mike Brocchi',
-              iconName: 'bi-bookmark-check-fill',
+              iconName: 'person',
               route: 'mike-brocchi',
               children: [
                 {
                   displayName: 'My ally, the CLI',
-                  iconName: 'bi-bookmark-check-fill',
+                  iconName: 'star_rate',
                   route: 'my-ally-cli'
                 },
                 {
