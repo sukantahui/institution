@@ -17,7 +17,7 @@ export class MenuOwnerComponent implements OnInit {
   openElements: boolean[] = [];
   navItems: NavItem[] = [
     {
-      displayName: 'DevFestFL',
+      displayName: 'Menu 1',
       iconName: 'close',
       children: [
         {
@@ -101,7 +101,7 @@ export class MenuOwnerComponent implements OnInit {
       ]
     },
     {
-      displayName: 'Disney',
+      displayName: 'Menu 2',
       iconName: 'close',
       children: [
         {
@@ -185,7 +185,7 @@ export class MenuOwnerComponent implements OnInit {
       ]
     },
     {
-      displayName: 'Orlando',
+      displayName: 'Menu 3',
       iconName: 'close',
       children: [
         {
@@ -269,7 +269,7 @@ export class MenuOwnerComponent implements OnInit {
       ]
     },
     {
-      displayName: 'Maleficent',
+      displayName: 'Menu 4',
       disabled: true,
       iconName: 'close',
       children: [
