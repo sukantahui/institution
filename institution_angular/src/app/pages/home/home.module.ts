@@ -10,6 +10,7 @@ import {MatCardModule} from '@angular/material/card';
 import {AuthModule} from './auth/auth.module';
 import {MenuModule} from './menu/menu.module';
 import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -27,7 +28,8 @@ import {MatButtonModule} from '@angular/material/button';
         MatSidenavModule,
         MatCardModule,
         MenuModule,
-        MatButtonModule
+        MatButtonModule,
+        MatIconModule
     ]
 })
 export class HomeModule { }

@@ -6,6 +6,7 @@ import { MenuComponent } from './menu.component';
 import {AuthModule} from '../auth/auth.module';
 import {MenuPublicModule} from './menu-public/menu-public.module';
 import {MenuOwnerModule} from './menu-owner/menu-owner.module';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {MenuOwnerModule} from './menu-owner/menu-owner.module';
         CommonModule,
         MenuRoutingModule,
         MenuPublicModule,
-        MenuOwnerModule
+        MenuOwnerModule,
+        MatIconModule
     ]
 })
 export class MenuModule { }

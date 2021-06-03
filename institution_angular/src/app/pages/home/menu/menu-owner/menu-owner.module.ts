@@ -8,6 +8,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MenuItemModule} from '../menu-item/menu-item.module';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {MenuItemModule} from '../menu-item/menu-item.module';
         MatSidenavModule,
         MatListModule,
         MatToolbarModule,
-        MenuItemModule
+        MenuItemModule,
+        MatIconModule
     ]
 })
 export class MenuOwnerModule { }
