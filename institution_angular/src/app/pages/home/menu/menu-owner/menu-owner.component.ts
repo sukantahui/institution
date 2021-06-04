@@ -30,9 +30,9 @@ export class MenuOwnerComponent implements OnInit {
               route: 'michael-prentice',
               children: [
                 {
-                  displayName: 'Create Enterprise UIs',
+                  displayName: 'This is test',
                   iconName: 'star_rate',
-                  route: 'material-design'
+                  route: 'test'
                 }
               ]
             },

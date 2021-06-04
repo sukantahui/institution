@@ -16,7 +16,11 @@ const routes: Routes = [
                                         .then(mod => mod.OwnerModule)
                                },
                             ]
-                          }
+                          },
+                          { path: '404', loadChildren: () => import('./home-not-found/home-not-found.module')
+                                  .then(m => m.HomeNotFoundModule)
+                          },
+                          { path: '**', redirectTo: '/404'}
                       ];
 
 @NgModule({
