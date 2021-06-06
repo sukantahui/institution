@@ -4,14 +4,14 @@
       <!-- Handle branch node buttons here -->
       <div class="p-1" *ngIf="item.children && item.children.length > 0">
         <button mat-button [matMenuTriggerFor]="menu.childMenu" style="border-radius: 10px; width: 150px;"
-                [disabled]="item.disabled">
+                [disabled]="item.disabled" data-aos="fade-right" data-aos-duration="4000" data-aos-delay="200">
           {{item.displayName}}
         </button>
-        <app-menu-item #menu [items]="item.children"></app-menu-item>
+        <app-menu-item #menu [items]="item.children" data-aos="fade-right" data-aos-duration="4000" data-aos-delay="200"></app-menu-item>
       </div>
         <!-- Leaf node buttons here -->
       <div  *ngIf="!item.children || item.children.length === 0">
-        <button mat-button color="primary" [routerLink]="item.route">
+        <button mat-button color="primary" [routerLink]="item.route" data-aos="fade-right" data-aos-duration="4000" data-aos-delay="200">
           {{item.displayName}}
         </button>
       </div>

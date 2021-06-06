@@ -9,6 +9,8 @@ import { Title, Meta, MetaDefinition } from '@angular/platform-browser';
 import {CanonicalService} from './services/canonical.service';
 import {CommonService} from './services/common.service';
 import {AuthService} from './services/auth.service';
+import * as AOS from 'aos';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -40,7 +42,9 @@ export class AppComponent implements OnInit, OnDestroy{
               // tslint:disable-next-line:align
               , private commonService: CommonService
               // tslint:disable-next-line:align
-              , private authService: AuthService){
+              , private authService: AuthService)
+  {
+    AOS.init();
 
   }
   ngOnInit(): void {
