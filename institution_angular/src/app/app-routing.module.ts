@@ -24,6 +24,14 @@ const routes: Routes = [
   { path: 'MenuItem', loadChildren: () => import('./pages/home/menu/menu-item/menu-item.module').then(m => m.MenuItemModule) },
 
   { path: 'HomeNotFound', loadChildren: () => import('./pages/home/home-not-found/home-not-found.module').then(m => m.HomeNotFoundModule) },
+
+  { path: 'WhyUs', loadChildren: () => import('./pages/home/why-us/why-us.module').then(m => m.WhyUsModule) },
+
+  { path: 'features', loadChildren: () => import('./pages/home/features/features.module').then(m => m.FeaturesModule) },
+
+  { path: 'PopularCourses', loadChildren: () => import('./pages/home/popular-courses/popular-courses.module').then(m => m.PopularCoursesModule) },
+
+  { path: 'trainer', loadChildren: () => import('./pages/home/trainer/trainer.module').then(m => m.TrainerModule) },
   // { path: 'auth', loadChildren: () => import('./pages/home/auth/auth.module').then(m => m.AuthModule) },
   // { path: '404', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule) },
   // { path: '**', redirectTo: '/404'}

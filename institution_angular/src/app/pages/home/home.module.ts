@@ -11,6 +11,10 @@ import {AuthModule} from './auth/auth.module';
 import {MenuModule} from './menu/menu.module';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {WhyUsModule} from './why-us/why-us.module';
+import {FeaturesModule} from './features/features.module';
+import {PopularCoursesModule} from './popular-courses/popular-courses.module';
+import {TrainerModule} from './trainer/trainer.module';
 
 
 
@@ -29,7 +33,11 @@ import {MatIconModule} from '@angular/material/icon';
         MatCardModule,
         MenuModule,
         MatButtonModule,
-        MatIconModule
+        MatIconModule,
+        WhyUsModule,
+        FeaturesModule,
+        PopularCoursesModule,
+        TrainerModule
     ]
 })
 export class HomeModule { }
