@@ -10,5 +10,7 @@
         <div data-aos="fade-up">Fade Up</div>
         <div data-aos="fade-right">Fade Right</div>
         <div data-aos="zoom-in-up" data-aos-delay="2000"  data-aos-offset="300">Zoom in up</div>
+        <button (click)="toggleBounce()">Arc the Ball!</button>
+        <div [@animateArc]="arc" class="ball"></div>
     </div>
 </header>

@@ -6,21 +6,12 @@
         <a (click)="drawer.toggle()" class="menu-toggle rounded" [routerLink]=""><i class="bi bi-list" ></i></a>
 
         <br><br><br>
-        <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+
         <app-menu></app-menu>
 
     </mat-drawer>
 
     <a (click)="drawer.toggle()" class="menu-toggle rounded" [routerLink]=""><i class="bi bi-list" ></i></a>
-<!--    <a class="logout-button" [routerLink]=""><i class="ri-shut-down-line"></i></a>-->
-
-
-<!--    <div class="example-sidenav-content">-->
-<!--        <button type="button" mat-button (click)="drawer.toggle()">-->
-<!--            Toggle sidenav-->
-<!--        </button>-->
-<!--    </div>-->
-
     <router-outlet></router-outlet>
     <app-top></app-top>
     <section id="test" class="pl-5">
