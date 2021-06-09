@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 })
 export class HomeComponent implements OnInit {
   showFiller = false;
+  showLogin = false;
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {

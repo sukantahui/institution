@@ -34,6 +34,13 @@ export class AuthService {
       return false;
     }
   }
+  isNotAuthenticated(){
+    if (this.userBehaviorSubject.value){
+      return false;
+    }else{
+      return true;
+    }
+  }
   isOwner(){
     if (this.userBehaviorSubject.value && this.userBehaviorSubject.value.isOwner){
       return true;

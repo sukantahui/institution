@@ -37,7 +37,8 @@ import {TrainerModule} from './trainer/trainer.module';
         WhyUsModule,
         FeaturesModule,
         PopularCoursesModule,
-        TrainerModule
+        TrainerModule,
+        CommonModule
     ]
 })
 export class HomeModule { }

@@ -1,5 +1,4 @@
 <div class="menu" id="menu-public">
-    <app-auth></app-auth>
-    <a [routerLink]>Login <i class="icon-login"></i></a>
-
+    <button *ngIf="authService.isNotAuthenticated()" (click)="showLogin=!showLogin" class="login-button coder-fab"  mat-fab><i class="ri-login-circle-line"></i></button>
+    <app-auth *ngIf="showLogin"></app-auth>
 </div>

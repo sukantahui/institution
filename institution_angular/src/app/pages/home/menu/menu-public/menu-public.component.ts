@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-menu-public',
@@ -6,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-public.component.scss']
 })
 export class MenuPublicComponent implements OnInit {
+    showLogin = false;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }

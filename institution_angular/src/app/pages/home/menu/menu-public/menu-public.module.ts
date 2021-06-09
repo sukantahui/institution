@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MenuPublicRoutingModule } from './menu-public-routing.module';
 import { MenuPublicComponent } from './menu-public.component';
 import {AuthModule} from '../../auth/auth.module';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {AuthModule} from '../../auth/auth.module';
     imports: [
         CommonModule,
         MenuPublicRoutingModule,
-        AuthModule
+        AuthModule,
+        MatButtonModule
     ]
 })
 export class MenuPublicModule { }

@@ -2,13 +2,10 @@
 
 <mat-drawer-container class="example-container" autosize style="background-color: #bebebf;">
     <mat-drawer #drawer  mode="side" opened="false" position="end">
-        <button (click)="logout()" class="logout-button coder-fab"  mat-fab><i class="ri-shut-down-line"></i></button>
+        <button *ngIf="authService.isAuthenticated()" (click)="logout()" class="logout-button coder-fab"  mat-fab><i class="ri-shut-down-line"></i></button>
         <a (click)="drawer.toggle()" class="menu-toggle rounded" [routerLink]=""><i class="bi bi-list" ></i></a>
-
         <br><br><br>
-
         <app-menu></app-menu>
-
     </mat-drawer>
 
     <a (click)="drawer.toggle()" class="menu-toggle rounded" [routerLink]=""><i class="bi bi-list" ></i></a>
