@@ -9,6 +9,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MenuItemModule} from '../menu-item/menu-item.module';
 import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {MatIconModule} from '@angular/material/icon';
         MatListModule,
         MatToolbarModule,
         MenuItemModule,
-        MatIconModule
+        MatIconModule,
+        MatButtonModule
     ]
 })
 export class MenuOwnerModule { }
