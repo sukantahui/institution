@@ -35,6 +35,10 @@ Route::post("register",[UserController::class,'register']);
 
 Route::group(['middleware' => 'auth:sanctum'], function(){
     //All secure URL's
+
+    Route::get('/me', function(Request $request) {
+        return auth()->user();
+    });
     Route::get("user",[UserController::class,'getCurrentUser']);
     Route::get("logout",[UserController::class,'logout']);
 

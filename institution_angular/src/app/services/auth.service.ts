@@ -65,6 +65,9 @@ export class AuthService {
 
   autoLogin(){
     // tslint:disable-next-line:max-line-length
+    this.http.get(this.BASE_API_URL + '/me').subscribe(response => {
+      console.log(response);
+    });
     const userData: User = JSON.parse(localStorage.getItem('user'));
     if (!userData){
       return;
@@ -119,20 +122,35 @@ export class AuthService {
     }
   }
 
-  logout(){
-    return this.http.get<any>(this.BASE_API_URL + '/logout').subscribe(response => {
-      console.log(response);
-    });
-
-    this.userBehaviorSubject.next(null);
-    localStorage.removeItem('user');
-    console.log('logged out');
+  redirectToRoot(){
     this.router.navigate(['/']).then(r => {
       if (r) {
         location.reload();
       }
     });
-    // location.reload();
-    // this.router.navigate(['/auth']);
+  }
+
+  logout(){
+    // this.userBehaviorSubject.next(null);
+    // localStorage.removeItem('user');
+    this.http.get<any>(this.BASE_API_URL + '/logout').subscribe( response => {
+      this.userBehaviorSubject.next(null);
+      localStorage.removeItem('user');
+      this.router.navigate(['/']).then(r => {
+        if (r) {
+          location.reload();
+        }
+      });
+      }, (error) => {
+        console.log('logout with error', error);
+        this.userBehaviorSubject.next(null);
+        localStorage.removeItem('user');
+        this.router.navigate(['/']).then(r => {
+          if (r) {
+            location.reload();
+          }
+        });
+    });
+
   }
 }
