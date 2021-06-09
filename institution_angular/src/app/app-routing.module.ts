@@ -32,6 +32,10 @@ const routes: Routes = [
   { path: 'PopularCourses', loadChildren: () => import('./pages/home/popular-courses/popular-courses.module').then(m => m.PopularCoursesModule) },
 
   { path: 'trainer', loadChildren: () => import('./pages/home/trainer/trainer.module').then(m => m.TrainerModule) },
+
+  { path: 'developer', loadChildren: () => import('./pages/home/child-pages/developer/developer.module').then(m => m.DeveloperModule) },
+
+  { path: 'MenuDeveloper', loadChildren: () => import('./pages/home/menu/menu-developer/menu-developer.module').then(m => m.MenuDeveloperModule) },
   // { path: 'auth', loadChildren: () => import('./pages/home/auth/auth.module').then(m => m.AuthModule) },
   // { path: '404', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule) },
   // { path: '**', redirectTo: '/404'}

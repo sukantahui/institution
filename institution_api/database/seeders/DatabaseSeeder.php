@@ -38,13 +38,14 @@ class DatabaseSeeder extends Seeder
         UserType::create(['user_type_name' => 'Worker']);
         UserType::create(['user_type_name' => 'Accountant']);
         UserType::create(['user_type_name' => 'Office Staff']);
-
-
         UserType::create(['user_type_name' => 'Student']);
 
 
-        User::create(['user_name'=>'Arindam Biswas','mobile1'=>'9836444999','mobile2'=>'100'
-        ,'email'=>'arindam','password'=>"81dc9bdb52d04dc20036dbd8313ed055",'user_type_id'=>1]);
+        User::create(['user_name'=>'Tanusree Hui','mobile1'=>'9836444999','mobile2'=>'100'
+        ,'email'=>'owner','password'=>"81dc9bdb52d04dc20036dbd8313ed055",'user_type_id'=>1]);
+
+        User::create(['user_name'=>'Sukanta Hui','mobile1'=>'9836444999','mobile2'=>'101'
+            ,'email'=>'developer','password'=>"81dc9bdb52d04dc20036dbd8313ed055",'user_type_id'=>2]);
         //storing state
         State::insert([
             ['state_code'=>0,'state_name'=>'Not applicable'],

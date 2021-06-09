@@ -15,6 +15,11 @@ const routes: Routes = [
                                   loadChildren: () => import('./child-pages/owner/owner.module')
                                         .then(mod => mod.OwnerModule)
                                },
+                               {
+                                  path: 'developer',
+                                  loadChildren: () => import('./child-pages/developer/developer.module')
+                                        .then(mod => mod.DeveloperModule)
+                               },
                             ]
                           },
                           { path: '404', loadChildren: () => import('./home-not-found/home-not-found.module')
