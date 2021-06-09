@@ -1,21 +1,22 @@
 <mat-card  class="auth-mat-card" >
     <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
+        <h4>Login <i class="icon-user"></i></h4>
     </mat-card-header>
     <mat-card-content>
-        <h3>Login <i class="icon-user"></i></h3>
         <form [formGroup]="loginForm">
             <div class="d-flex flex-column bd-highlight mb-3">
-                <div class="p-2 bd-highlight">
-                    <input class="p-1" type="text" formControlName="email" matInput placeholder="User ID" style="border-radius: 5px;">
-                </div>
-                <div class="p-2 bd-highlight">
-                    <input class="p-1" type="password" formControlName="password" matInput placeholder="Password" style="border-radius: 5px;">
-                </div>
-                <div class="p-2">
-                    <button mat-raised-button style="color: green" (click)="loginUser()">Login<i class="ri-login-circle-line" ></i>
-                    </button>
-                </div>
+                <mat-form-field>
+                        <input   class="p-1" type="text" formControlName="email" matInput placeholder="User ID" style="border-radius: 5px;">
+                </mat-form-field>
+                <mat-form-field>
+                    <input showHideInput class="p-1" id="password" type="password" formControlName="password" matInput placeholder="Password" style="border-radius: 5px;">
+                        <i matSuffix
+                           class="material-icons"
+                           showHideTrigger="password"
+                           [showHideStatus]="{ materialIcon: true, id: 'password' }"
+                        ></i>
+                </mat-form-field>
+                <button mat-raised-button style="color: green" (click)="loginUser()">Login<i class="ri-login-circle-line" ></i></button>
             </div>
         </form>
     </mat-card-content>

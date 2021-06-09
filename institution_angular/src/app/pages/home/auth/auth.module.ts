@@ -8,6 +8,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {ShowHidePasswordModule} from 'ngx-show-hide-password';
+import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import {HttpClientModule} from '@angular/common/http';
         MatButtonModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpClientModule
+        HttpClientModule,
+        ShowHidePasswordModule,
+        MatInputModule
     ]
 })
 export class AuthModule { }
