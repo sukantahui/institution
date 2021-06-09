@@ -5,16 +5,20 @@ namespace App\Http\Controllers;
 use App\Event\UserRegistered;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Resources\UserResource;
 
-class UserController extends Controller
+class UserController extends ApiController
 {
 
     public function index(){
-        event(new UserRegistered("This is a testing for event"));
+        //        event(new UserRegistered("This is a testing for event"));
+        $user = User::all();
+        return $this->successResponse($user);
     }
+
     public function register(Request $request)
     {
 

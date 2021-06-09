@@ -112,6 +112,10 @@ Route::group(array('prefix' => 'dev'), function() {
 
     Route::get("logout",[UserController::class,'logout']);
 
+    Route::get("users",[UserController::class,'index']);
+
+
+
     //transactions
     Route::group(array('prefix' => 'transactions'), function() {
         Route::get("/all",[TransactionController::class, 'get_all_transactions']);
