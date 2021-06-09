@@ -106,7 +106,7 @@ Route::group(array('prefix' => 'dev'), function() {
     Route::patch("studentCourseRegistrations",[StudentCourseRegistrationController::class, 'update']);
 
 
-
+    Route::get("logout",[UserController::class,'logout']);
 
     //transactions
     Route::group(array('prefix' => 'transactions'), function() {

@@ -120,6 +120,10 @@ export class AuthService {
   }
 
   logout(){
+    return this.http.get<any>(this.BASE_API_URL + '/logout').subscribe(response => {
+      console.log(response);
+    });
+
     this.userBehaviorSubject.next(null);
     localStorage.removeItem('user');
     console.log('logged out');
