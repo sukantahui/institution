@@ -19,12 +19,15 @@ class UserController extends ApiController
         return $this->successResponse($user);
     }
 
+    public function revoke_all(Request $request){
+        //revoke all tokens from current user
+        $user = request()->user();
+        $result = $user->tokens()->delete();
+        return $this->successResponse($result);
+    }
+
     public function register(Request $request)
     {
-
-
-
-
         $user = User::create([
             'email'    => $request->email,
             'password' => $request->password,
