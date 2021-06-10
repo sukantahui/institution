@@ -31,14 +31,14 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         //person_types table data
-        UserType::create(['user_type_name' => 'Owner']);
-        UserType::create(['user_type_name' => 'Developer']);
-        UserType::create(['user_type_name' => 'Admin']);
-        UserType::create(['user_type_name' => 'Manager']);
-        UserType::create(['user_type_name' => 'Worker']);
-        UserType::create(['user_type_name' => 'Accountant']);
-        UserType::create(['user_type_name' => 'Office Staff']);
-        UserType::create(['user_type_name' => 'Student']);
+        UserType::create(['user_type_name' => 'Owner']);            #1
+        UserType::create(['user_type_name' => 'Developer']);        #2
+        UserType::create(['user_type_name' => 'Admin']);            #3
+        UserType::create(['user_type_name' => 'Manager']);          #4
+        UserType::create(['user_type_name' => 'Worker']);           #5
+        UserType::create(['user_type_name' => 'Accountant']);       #6
+        UserType::create(['user_type_name' => 'Office Staff']);     #7
+        UserType::create(['user_type_name' => 'Student']);          #8
 
         //owner
         User::create(['user_name'=>'Tanusree Hui','mobile1'=>'9836444999','mobile2'=>'100'
@@ -51,7 +51,11 @@ class DatabaseSeeder extends Seeder
         //admin
         User::create(['user_name'=>'Sreeparna Das','mobile1'=>'9836444999','mobile2'=>'102'
             ,'email'=>'admin','password'=>"81dc9bdb52d04dc20036dbd8313ed055",'user_type_id'=>3]);
-        
+
+        //student
+        User::create(['user_name'=>'Coder Student','mobile1'=>'9836444999','mobile2'=>'108'
+            ,'email'=>'student','password'=>"81dc9bdb52d04dc20036dbd8313ed055",'user_type_id'=>8]);
+
         //storing state
         State::insert([
             ['state_code'=>0,'state_name'=>'Not applicable'],

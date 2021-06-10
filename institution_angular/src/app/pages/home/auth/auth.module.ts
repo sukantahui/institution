@@ -10,6 +10,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {ShowHidePasswordModule} from 'ngx-show-hide-password';
 import {MatInputModule} from '@angular/material/input';
+import {LoadingSpinnerModule} from '../../../shared/loading-spinner/loading-spinner.module';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {MatInputModule} from '@angular/material/input';
         ReactiveFormsModule,
         HttpClientModule,
         ShowHidePasswordModule,
-        MatInputModule
+        MatInputModule,
+        LoadingSpinnerModule
     ]
 })
 export class AuthModule { }

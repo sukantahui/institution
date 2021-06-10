@@ -3,6 +3,9 @@
         <h4>Login <i class="icon-user"></i></h4>
     </mat-card-header>
     <mat-card-content>
+        <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+    </mat-card-content>
+    <mat-card-content>
         <form [formGroup]="loginForm">
             <div class="d-flex flex-column bd-highlight mb-3">
                 <mat-form-field>

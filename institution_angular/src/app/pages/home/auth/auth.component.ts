@@ -14,6 +14,7 @@ import {ErrorService} from '../../../services/error.service';
 })
 export class AuthComponent implements OnInit {
   loginForm: FormGroup;
+    isLoading = false;
 
 
 
@@ -39,8 +40,9 @@ export class AuthComponent implements OnInit {
         const md5 = new Md5();
         const passwordMd5 = md5.appendStr(this.loginForm.value.password).end();
         // const formPassword = form.value.password;
-
+        this.isLoading = true;
         this.authService.login({loginId: this.loginForm.value.email, loginPassword: passwordMd5}).subscribe(response => {
+            this.isLoading = false;
             if (response.success === 1){
                 // tslint:disable-next-line:triple-equals
                 if (response.data.user.isOwner){
@@ -58,7 +60,30 @@ export class AuthComponent implements OnInit {
                 if (response.data.user.userTypeId == 4){
                     this.router.navigate(['/terminal']).then(r => {});
                 }
+                if (response.data.user.userTypeId === 8){
+                    this.router.navigate(['/student']).then(r => {});
+                }
             }
+        }, (error) => {
+            this.isLoading = false;
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: true
+            });
+            swalWithBootstrapButtons.fire({
+                // timer: 3000,
+                // timerProgressBar: true,
+                title: 'Backend Server Error',
+                text: 'Backend Server does not responding',
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#1661a0',
+                cancelButtonColor: '#d33',
+                background: 'rgba(38,39,47,0.95)'
+            });
         });
     }
 }

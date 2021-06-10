@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { TopRoutingModule } from './top-routing.module';
 import { TopComponent } from './top.component';
+import {LoadingSpinnerModule} from '../../../shared/loading-spinner/loading-spinner.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { TopComponent } from './top.component';
     ],
     imports: [
         CommonModule,
-        TopRoutingModule
+        TopRoutingModule,
+        LoadingSpinnerModule
     ]
 })
 export class TopModule { }
