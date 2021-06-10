@@ -38,6 +38,8 @@ const routes: Routes = [
   { path: 'MenuDeveloper', loadChildren: () => import('./pages/home/menu/menu-developer/menu-developer.module').then(m => m.MenuDeveloperModule) },
 
   { path: 'Admin', loadChildren: () => import('./pages/home/child-pages/admin/admin.module').then(m => m.AdminModule) },
+
+  { path: 'banking', loadChildren: () => import('./pages/home/child-pages/banking/banking.module').then(m => m.BankingModule) },
   // { path: 'auth', loadChildren: () => import('./pages/home/auth/auth.module').then(m => m.AuthModule) },
   // { path: '404', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule) },
   // { path: '**', redirectTo: '/404'}

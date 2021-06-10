@@ -1,3 +1,10 @@
+
+::ng-deep .custom-menu{
+  margin-top: 15px;
+  background-color: rgba(255, 171, 48, 0.95);
+}
+
+
 .item {
   width: 200px;
   height: 200px;
@@ -74,4 +81,8 @@ mat-drawer{
   transition: background-color .1s;
   background-color: #0f5132;
   -webkit-overflow-scrolling: touch;
+}
+
+.mat-menu-content {
+  background-color: red !important;
 }

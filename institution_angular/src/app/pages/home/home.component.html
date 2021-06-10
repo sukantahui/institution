@@ -2,7 +2,14 @@
 
 <mat-drawer-container class="example-container" autosize style="background-color: #bebebf;">
     <mat-drawer #drawer  mode="side" opened="false" position="end">
-        <button *ngIf="authService.isAuthenticated()" (click)="logout()" class="logout-button coder-fab"  mat-fab><i class="ri-shut-down-line"></i></button>
+<!--        <button *ngIf="authService.isAuthenticated()" (click)="logout()" class="logout-button coder-fab"  mat-fab><i class="ri-shut-down-line"></i></button>-->
+<!--        <button *ngIf="authService.isAuthenticated()" [popover]="popoverCustomer"  class="logout-button coder-fab"  mat-fab><i class="ri-shut-down-line"></i></button>-->
+
+        <button *ngIf="authService.isAuthenticated()" [matMenuTriggerFor]="menuShutDown" class="logout-button coder-fab"  mat-fab><i class="ri-shut-down-line"></i></button>
+        <mat-menu #menuShutDown="matMenu" class="custom-menu">
+            <button mat-menu-item (click)="logoutAll()">Logout from All Devices<i class="ri-logout-box-r-fill"></i> </button>
+            <button mat-menu-item (click)="logout()">Logout from here <i class="ri-logout-circle-r-fill"></i> </button>
+        </mat-menu>
         <a (click)="drawer.toggle()" class="menu-toggle rounded" [routerLink]=""><i class="bi bi-list" ></i></a>
         <br><br><br>
         <app-menu></app-menu>
@@ -11,7 +18,7 @@
     <a (click)="drawer.toggle()" class="menu-toggle rounded" [routerLink]=""><i class="bi bi-list" ></i></a>
     <router-outlet></router-outlet>
     <app-top></app-top>
-    <section id="test" class="pl-5">
+    <section id="test" class="pl-5" *ngIf="false">
         <div class="box a" data-aos="fade-up">
             <h2>Animated using fade-up.</h2>
         </div>

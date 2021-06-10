@@ -153,4 +153,27 @@ export class AuthService {
     });
 
   }
+
+    logoutAll() {
+      // this.userBehaviorSubject.next(null);
+      // localStorage.removeItem('user');
+      this.http.get<any>(this.BASE_API_URL + '/revokeAll').subscribe( response => {
+        this.userBehaviorSubject.next(null);
+        localStorage.removeItem('user');
+        this.router.navigate(['/']).then(r => {
+          if (r) {
+            location.reload();
+          }
+        });
+      }, (error) => {
+        console.log('logout with error', error);
+        this.userBehaviorSubject.next(null);
+        localStorage.removeItem('user');
+        this.router.navigate(['/']).then(r => {
+          if (r) {
+            location.reload();
+          }
+        });
+      });
+    }
 }

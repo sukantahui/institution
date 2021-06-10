@@ -20,6 +20,11 @@ const routes: Routes = [
                                   loadChildren: () => import('./child-pages/developer/developer.module')
                                         .then(mod => mod.DeveloperModule)
                                },
+                               {
+                                    path: 'banking',
+                                    loadChildren: () => import('./child-pages/banking/banking.module')
+                                        .then(mod => mod.BankingModule)
+                               },
                             ]
                           },
                           { path: '404', loadChildren: () => import('./home-not-found/home-not-found.module')

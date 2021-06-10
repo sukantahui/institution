@@ -15,6 +15,8 @@ import {WhyUsModule} from './why-us/why-us.module';
 import {FeaturesModule} from './features/features.module';
 import {PopularCoursesModule} from './popular-courses/popular-courses.module';
 import {TrainerModule} from './trainer/trainer.module';
+import {_MatMenuDirectivesModule, MatMenuModule} from '@angular/material/menu';
+import {PopoverModule} from 'ngx-smart-popover';
 
 
 
@@ -38,7 +40,10 @@ import {TrainerModule} from './trainer/trainer.module';
         FeaturesModule,
         PopularCoursesModule,
         TrainerModule,
-        CommonModule
+        CommonModule,
+        _MatMenuDirectivesModule,
+        MatMenuModule,
+        PopoverModule
     ]
 })
 export class HomeModule { }
