@@ -64,19 +64,21 @@ export class AuthService {
   }
 
   autoLogin(){
-    // tslint:disable-next-line:max-line-length
-    this.http.get(this.BASE_API_URL + '/me').subscribe(response => {
-      console.log(response);
-    });
+
     const userData: User = JSON.parse(localStorage.getItem('user'));
     if (!userData){
       return;
+    }else{
+      // tslint:disable-next-line:max-line-length
+      this.http.get(this.BASE_API_URL + '/me').subscribe(response => {
+        console.log(response);
+      });
+      const loadedUser = new User(userData.uniqueId, userData.userName, userData._authKey, userData.userTypeId, userData.userTypeName);
+      if (loadedUser.authKey){
+        this.userBehaviorSubject.next(loadedUser);
+      }
     }
     // tslint:disable-next-line:max-line-length
-    const loadedUser = new User(userData.uniqueId, userData.userName, userData._authKey, userData.userTypeId, userData.userTypeName);
-    if (loadedUser.authKey){
-      this.userBehaviorSubject.next(loadedUser);
-    }
   }
 
 

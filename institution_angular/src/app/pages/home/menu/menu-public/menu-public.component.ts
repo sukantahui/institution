@@ -102,7 +102,7 @@ export class MenuPublicComponent implements OnInit {
             {
               displayName: 'Bank Details',
               iconName: 'star_rate',
-              route: 'banking'
+              route: '/banking'
             }
           ]
         },

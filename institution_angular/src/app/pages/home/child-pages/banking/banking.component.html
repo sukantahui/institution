@@ -14,37 +14,37 @@
                     </form>
                 </div>
                 <div class="p-2 bd-highlight">
-                    <table class="table table-responsive">
+                    <table class="table table-responsive table-striped" *ngIf="bankDetails">
                         <tbody>
                             <tr>
-                                <td>IFSC</td> <td>{{bankDetails.IFSC}}</td>
+                                <td class="left-label">IFSC</td> <td>{{bankDetails.IFSC}}</td>
                             </tr>
                             <tr>
-                                <td>Bank</td> <td>{{bankDetails.BANK}}</td>
+                                <td class="left-label">Bank</td> <td>{{bankDetails.BANK}}</td>
                             </tr>
                             <tr>
-                                <td>Bank Code</td> <td>{{bankDetails.BANKCODE}}</td>
+                                <td class="left-label">Bank Code</td> <td>{{bankDetails.BANKCODE}}</td>
                             </tr>
                             <tr>
-                                <td>Branch</td> <td>{{bankDetails.BRANCH}}</td>
+                                <td class="left-label">Branch</td> <td>{{bankDetails.BRANCH}}</td>
                             </tr>
                             <tr>
-                                <td>Address</td> <td>{{bankDetails.ADDRESS}}</td>
+                                <td class="left-label">Address</td> <td>{{bankDetails.ADDRESS}}</td>
                             </tr>
                             <tr>
-                                <td>City</td> <td>{{bankDetails.CITY}}</td>
+                                <td class="left-label">City</td> <td>{{bankDetails.CITY}}</td>
                             </tr>
                             <tr>
-                                <td>District</td> <td>{{bankDetails.DISTRICT}}</td>
+                                <td class="left-label">District</td> <td>{{bankDetails.DISTRICT}}</td>
                             </tr>
                             <tr>
-                                <td>State</td> <td>{{bankDetails.STATE}}</td>
+                                <td class="left-label">State</td> <td>{{bankDetails.STATE}}</td>
                             </tr>
                             <tr>
-                                <td>MICR</td> <td>{{bankDetails.MICR}}</td>
+                                <td class="left-label">MICR</td> <td>{{bankDetails.MICR}}</td>
                             </tr>
                             <tr>
-                                <td>Contact</td> <td>{{bankDetails.CONTACT}}</td>
+                                <td class="left-label">Contact</td> <td>{{bankDetails.CONTACT}}</td>
                             </tr>
 
                         </tbody>
@@ -52,7 +52,6 @@
                 </div>
                 <div class="p-2 bd-highlight">
                     <pre>
-                        bankingForm {{bankingForm.value | json}}
                     </pre>
                 </div>
 

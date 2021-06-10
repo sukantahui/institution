@@ -37,7 +37,7 @@ export class AuthInterceptor implements HttpInterceptor {
       // this.authService.logout();
       this.authService.userBehaviorSubject.next(null);
       localStorage.removeItem('user');
-      this.authService.redirectToRoot();
+      // this.authService.redirectToRoot();
       // localStorage.removeItem('user');
       // this.router.navigate(['/auth']);
 
