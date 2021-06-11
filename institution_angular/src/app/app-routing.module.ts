@@ -44,6 +44,8 @@ const routes: Routes = [
   { path: 'LoadingSpinner', loadChildren: () => import('./shared/loading-spinner/loading-spinner.module').then(m => m.LoadingSpinnerModule) },
 
   { path: 'Student', loadChildren: () => import('./pages/home/child-pages/student/student.module').then(m => m.StudentModule) },
+
+  { path: 'MenuStudent', loadChildren: () => import('./pages/home/menu/menu-student/menu-student.module').then(m => m.MenuStudentModule) },
   // { path: 'auth', loadChildren: () => import('./pages/home/auth/auth.module').then(m => m.AuthModule) },
   // { path: '404', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule) },
   // { path: '**', redirectTo: '/404'}

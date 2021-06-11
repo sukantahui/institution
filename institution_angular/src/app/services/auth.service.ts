@@ -62,6 +62,13 @@ export class AuthService {
       return false;
     }
   }
+  isStudent(): boolean{
+    if (this.userBehaviorSubject.value && this.userBehaviorSubject.value.isStudent){
+      return true;
+    }else{
+      return false;
+    }
+  }
 
   autoLogin(){
 
