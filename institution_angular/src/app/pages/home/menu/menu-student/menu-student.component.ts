@@ -19,7 +19,7 @@ export class MenuStudentComponent implements OnInit {
             {
               displayName: 'Thread',
               iconName: 'star_rate',
-              route: 'what-up-web'
+              route: 'thread'
             },
             {
               displayName: 'What\'s up with the Web?',

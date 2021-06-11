@@ -32,10 +32,10 @@ const routes: Routes = [
                                }
                             ]
                           },
-                          { path: '404', loadChildren: () => import('./home-not-found/home-not-found.module')
-                                  .then(m => m.HomeNotFoundModule)
-                          },
-                          { path: '**', redirectTo: '/404'}
+                          // { path: '404', loadChildren: () => import('./home-not-found/home-not-found.module')
+                          //         .then(m => m.HomeNotFoundModule)
+                          // },
+                          // { path: '**', redirectTo: '/404'}
                       ];
 
 @NgModule({
