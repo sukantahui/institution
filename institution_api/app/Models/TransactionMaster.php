@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property mixed year
+ */
 class TransactionMaster extends Model
 {
     use HasFactory;
@@ -33,6 +36,19 @@ class TransactionMaster extends Model
      * @var mixed
      */
     private $reference_transaction_master_id;
+    /**
+     * @var mixed
+     */
+    private $student_course_registration_id;
+    /**
+    /**
+     * @var mixed
+     */
+    private $fees_year;
+    /**
+     * @var mixed
+     */
+    private $fees_month;
 
 
     public function voucher_type()

@@ -179,6 +179,8 @@ class TransactionController extends Controller
             $transaction_master->transaction_date = $input_transaction_master->transactionDate;
             $transaction_master->student_course_registration_id = $input_transaction_master->studentCourseRegistrationId;
             $transaction_master->comment = $input_transaction_master->comment;
+            $transaction_master->fees_year = $input_transaction_master->feesYear;
+            $transaction_master->fees_month = $input_transaction_master->feesMonth;
             $transaction_master->save();
             $result_array['transaction_master']=$transaction_master;
             $transaction_details=array();

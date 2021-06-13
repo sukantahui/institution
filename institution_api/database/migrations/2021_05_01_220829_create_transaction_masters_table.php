@@ -34,6 +34,9 @@ class CreateTransactionMastersTable extends Migration
             //user id
             $table->foreignId('user_id')->nullable(true)->references('id')->on('users')->onDelete('cascade');
 
+            $table->integer('fees_year')->default(0);
+            $table->integer('fees_month')->default(0);
+
 
             $table->tinyInteger('inforce')->default('1');
             $table->timestamps();
