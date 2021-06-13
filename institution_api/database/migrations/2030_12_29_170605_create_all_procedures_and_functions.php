@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateAllProceduresAndFunctions extends Migration
 {
@@ -32,6 +33,19 @@ class CreateAllProceduresAndFunctions extends Migration
                             RETURN month_count;
                         END'
         );
+        DB::unprepared('drop FUNCTION IF EXISTS get_fees_mode_by_scr_id ;
+                        CREATE FUNCTION get_fees_mode_by_scr_id (temp_scr_id bigint) RETURNS int
+                        DETERMINISTIC
+                        BEGIN
+                        DECLARE mode_id int;
+                            select courses.fees_mode_type_id INTO mode_id from student_course_registrations inner join courses ON courses.id = student_course_registrations.course_id
+                        inner join transaction_masters on student_course_registrations.id = transaction_masters.student_course_registration_id
+                        where student_course_registrations.id=temp_scr_id ;
+                            RETURN mode_id;
+                        END'
+
+        );
+
 
     }
 
