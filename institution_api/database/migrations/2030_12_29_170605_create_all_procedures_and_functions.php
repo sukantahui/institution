@@ -25,10 +25,7 @@ class CreateAllProceduresAndFunctions extends Migration
                         DETERMINISTIC
                         BEGIN
                           DECLARE month_count int;
-                            select TIMESTAMPDIFF(MONTH, effective_date, CURDATE()) INTO month_count from transaction_masters
-                          inner join student_course_registrations ON student_course_registrations.id = transaction_masters.student_course_registration_id
-                          inner join transaction_details on transaction_masters.id=transaction_details.transaction_master_id
-                          where transaction_masters.student_course_registration_id=temp_scr_id and transaction_details.ledger_id= 8;
+                          select TIMESTAMPDIFF(MONTH, effective_date, CURDATE())+1 INTO month_count from student_course_registrations where id=7 and is_completed=0 and is_started=1;
                             RETURN month_count;
                         END'
         );
