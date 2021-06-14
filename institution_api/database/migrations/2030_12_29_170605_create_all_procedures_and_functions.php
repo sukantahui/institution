@@ -95,6 +95,20 @@ class CreateAllProceduresAndFunctions extends Migration
                                 RETURN temp_month;
                             END'
         );
+        //this function will return total fes charged by scr Id
+        DB::unprepared('
+        drop FUNCTION get_total_fees_charged_by_scr_id;
+        CREATE FUNCTION get_total_fees_charged_by_scr_id (input_scr_id bigint) RETURNS int
+        DETERMINISTIC
+        BEGIN
+        DECLARE fees_charged int;
+          select count(*) INTO fees_charged from transaction_details
+          inner join transaction_masters ON transaction_masters.id = transaction_details.transaction_master_id
+          where transaction_masters.student_course_registration_id=input_scr_id and transaction_details.ledger_id=9;
+          RETURN fees_charged;
+        END'
+
+        );
     }
 
     public function down()
