@@ -58,6 +58,23 @@ class CreateAllProceduresAndFunctions extends Migration
                             END'
 
         );
+        //this function will return the year of last monthly fees charged for a SCR number
+        DB::unprepared('DROP FUNCTION IF EXISTS get_month_of_last_monthly_fees_charged;
+                            CREATE FUNCTION get_year_of_last_monthly_fees_charged(input_scr_id bigint) RETURNS int
+                            DETERMINISTIC
+                            BEGIN
+                              DECLARE temp_fees_month int;
+                              select fees_month into temp_fees_month  from transaction_masters
+                                inner join transaction_details on transaction_details.transaction_master_id = transaction_masters.id
+                                where voucher_type_id=9 and student_course_registration_id=input_scr_id and transaction_details.ledger_id=9
+                                order by transaction_masters.fees_year desc, transaction_masters.fees_month desc limit 1;
+                              IF(temp_fees_month IS NULL) THEN
+                                  SET temp_fees_month := 0;
+                              END IF;
+                                RETURN temp_fees_month;
+                            END'
+
+        );
     }
 
     public function down()
