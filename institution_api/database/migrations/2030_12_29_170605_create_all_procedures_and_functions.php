@@ -97,7 +97,7 @@ class CreateAllProceduresAndFunctions extends Migration
         );
         //this function will return total fes charged by scr Id
         DB::unprepared('
-        drop FUNCTION get_total_fees_charged_by_scr_id;
+        drop FUNCTION IF EXISTS get_total_fees_charged_by_scr_id;
         CREATE FUNCTION get_total_fees_charged_by_scr_id (input_scr_id bigint) RETURNS int
         DETERMINISTIC
         BEGIN
