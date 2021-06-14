@@ -34,9 +34,9 @@ class CreateAllProceduresAndFunctions extends Migration
                         DETERMINISTIC
                         BEGIN
                         DECLARE mode_id int;
-                            select courses.fees_mode_type_id INTO mode_id from student_course_registrations inner join courses ON courses.id = student_course_registrations.course_id
-                        inner join transaction_masters on student_course_registrations.id = transaction_masters.student_course_registration_id
-                        where student_course_registrations.id=input_scr_id ;
+                            select courses.fees_mode_type_id INTO mode_id from student_course_registrations
+                             inner join courses ON courses.id = student_course_registrations.course_id
+                             where student_course_registrations.id=input_scr_id ;
                             RETURN mode_id;
                         END'
 
