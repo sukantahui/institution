@@ -60,7 +60,7 @@ class CreateAllProceduresAndFunctions extends Migration
         );
         //this function will return the year of last monthly fees charged for a SCR number
         DB::unprepared('DROP FUNCTION IF EXISTS get_month_of_last_monthly_fees_charged;
-                            CREATE FUNCTION get_year_of_last_monthly_fees_charged(input_scr_id bigint) RETURNS int
+                            CREATE FUNCTION get_month_of_last_monthly_fees_charged(input_scr_id bigint) RETURNS int
                             DETERMINISTIC
                             BEGIN
                               DECLARE temp_fees_month int;
