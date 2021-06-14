@@ -75,6 +75,26 @@ class CreateAllProceduresAndFunctions extends Migration
                             END'
 
         );
+        //this function will return the next year
+        DB::unprepared('DROP FUNCTION IF EXISTS get_next_year;
+                            CREATE FUNCTION get_next_year (input_year int, input_month int) RETURNS int
+                            DETERMINISTIC
+                            BEGIN
+                                DECLARE temp_year int;
+                              select year(date_add(MAKEDATE(input_year, 1),INTERVAL  input_month month)) into temp_year;
+                                RETURN temp_year;
+                            END'
+        );
+        //this function will return the next month
+        DB::unprepared('DROP FUNCTION IF EXISTS get_next_month;
+                            CREATE FUNCTION get_next_month (input_year int, input_month int) RETURNS int
+                            DETERMINISTIC
+                            BEGIN
+                                DECLARE temp_month int;
+                              select year(date_add(MAKEDATE(input_year, 1),INTERVAL  input_month month)) into temp_month;
+                                RETURN temp_month;
+                            END'
+        );
     }
 
     public function down()
