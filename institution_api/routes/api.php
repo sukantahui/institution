@@ -131,6 +131,10 @@ Route::group(array('prefix' => 'dev'), function() {
 
         //saving fees charged
         Route::post("/feesCharged",[TransactionController::class, 'save_fees_charge']);
+
+        //saving monthly fees charged
+        Route::post("/monthlyFeesCharged",[TransactionController::class, 'save_monthly_fees_charge']);
+
         //saving fees received
         Route::post("/feesReceived",[TransactionController::class, 'save_fees_received']);
 
