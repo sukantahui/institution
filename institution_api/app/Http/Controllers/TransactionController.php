@@ -50,7 +50,7 @@ class TransactionController extends ApiController
     public function save_fees_charge(Request $request)
     {
         $input=($request->json()->all());
-
+        //checking main structure
         $validator = Validator::make($input,[
             'transactionMaster' => 'required',
             'transactionDetails' => ['required',function($attribute, $value, $fail){
