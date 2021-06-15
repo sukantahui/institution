@@ -216,9 +216,27 @@ class TransactionController extends ApiController
             'transactionDetails' => ['required',function($attribute, $value, $fail){
                 $dr=0;
                 $cr=0;
-
+                $monthly_fees_entry_count=0;
                 foreach ($value as $v ){
+                    if(!isset($v['ledgerId'])){
+                        return $fail("Ledger Id is missing");
+                    }
+                    if(!isset($v['amount'])){
+                        return $fail("Amount is missing");
+                    }
+                    if(!isset($v['transactionTypeId'])){
+                        return $fail("Transaction type is missing");
+                    }
 
+                    if($v['ledgerId']==9 && $v['transactionTypeId']!=2){
+                        return $fail("Cr. is only allowed for Monthly fees");
+                    }
+                    if($v['ledgerId']==9 && $v['transactionTypeId']==2){
+                        $monthly_fees_entry_count++;
+                    }
+                    if($monthly_fees_entry_count>1){
+                        return $fail("Monthly fees should be one");
+                    }
                     /*
                      * This is a fees charging transaction, hence only a student can be debited
                      * */
@@ -249,10 +267,10 @@ class TransactionController extends ApiController
                     if(!($v['transactionTypeId']==1 || $v['transactionTypeId']==2)){
                         return $fail("Transaction type id is incorrect");
                     }
-                    if($v['transactionTypeId']==1){
+                    if($v['amount'] && $v['transactionTypeId']==1){
                         $dr=$dr+$v['amount'];
                     }
-                    if($v['transactionTypeId']==2){
+                    if($v['amount'] && $v['transactionTypeId']==2){
                         $cr=$cr+$v['amount'];
                     }
                 }
@@ -306,7 +324,9 @@ class TransactionController extends ApiController
         //details verification
         //validation
         $rules = array(
-            "*.transactionTypeId"=>'required|in:1,2'
+            "*.transactionTypeId"=>'required|in:1,2',
+            "*.ledgerId"=>'exists:ledgers,id',
+            "*.amount"=>'required'
         );
         $validator = Validator::make($input['transactionDetails'],$rules,$messages );
         if ($validator->fails()) {
