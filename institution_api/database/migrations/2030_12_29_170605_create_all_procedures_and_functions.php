@@ -109,6 +109,25 @@ class CreateAllProceduresAndFunctions extends Migration
         END'
 
         );
+        DB::unprepared('
+        drop FUNCTION IF EXISTS get_due_of_one_month;
+        CREATE FUNCTION get_due_of_one_month (input_tm_id bigint, input_rtm_id bigint) RETURNS int
+        DETERMINISTIC
+        BEGIN
+          DECLARE month_due int;
+          select
+          (select amount from transaction_details
+          inner join transaction_masters ON transaction_masters.id = transaction_details.transaction_master_id
+          where transaction_masters.student_course_registration_id=7
+          and ledger_id=16 and transaction_details.transaction_master_id=input_tm_id)-
+
+
+          (select SUM(amount) from transaction_details
+          inner join transaction_masters ON transaction_masters.id = transaction_details.transaction_master_id
+          where transaction_masters.reference_transaction_master_id=input_rtm_id and transaction_details.ledger_id=1) INTO month_due;
+          RETURN month_due;
+        END
+        ');
     }
 
     public function down()
