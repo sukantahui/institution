@@ -299,13 +299,16 @@ class TransactionController extends ApiController
             'transactionDate' => 'bail|required|date_format:Y-m-d',
             'studentCourseRegistrationId' => ['bail','required',
                 function($attribute, $value, $fail){
+                    if(StudentCourseRegistration::find($value)->effective_date==null){
+                        return $fail('You cant charge monthly fees without Effective Date');
+                    }
                     $StudentCourseRegistration=StudentCourseRegistration::where('id', $value)->where('is_completed','=',0)->first();
                     if(!$StudentCourseRegistration){
-                        $fail($value.' is not a valid Course Registration Number');
+                        return $fail($value.' is not a valid Course Registration Number');
                     }
                     $fees_mode_type_id=StudentCourseRegistration::find($value)->course->fees_mode_type->id;
                     if($fees_mode_type_id<>1){
-                        $fail("This is not monthly paid course");
+                        return $fail("This is not monthly paid course");
                     }
                 }],
         );
@@ -332,6 +335,11 @@ class TransactionController extends ApiController
         if ($validator->fails()) {
             return response()->json(['position'=>1,'success'=>0,'data'=>null,'error'=>$validator->messages()], 406,[],JSON_NUMERIC_CHECK);
         }
+
+        $monthly_fees_charged_count=TransactionMaster::whereHas('transaction_details',function($query){
+            $query->where('ledger_id',9);
+        })->where('student_course_registration_id',$input_transaction_master->studentCourseRegistrationId)->where('voucher_type_id',9)->count();
+
         DB::beginTransaction();
         try{
             $result_array=array();
