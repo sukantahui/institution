@@ -15,5 +15,8 @@
         <div data-aos="zoom-in-up" data-aos-delay="2000"  data-aos-offset="300">Zoom in up</div>
         <button (click)="toggleBounce()">Arc the Ball!</button>
         <div [@animateArc]="arc" class="ball"></div>
+        <a (click)="dynamicDownloadTxt()" >download Txt</a>
+        <a (click)="dynamicDownloadJson()" >download JSON</a>
+        <button (click)="saveFile()">Save File</button>
     </div>
 </header>
