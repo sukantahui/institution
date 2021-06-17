@@ -32,6 +32,28 @@ if (! function_exists('get_accounting_year')) {
         return $accounting_year;
     }
 }
+if (! function_exists('get_next_year')) {
+    function get_next_year($current_year,$current_month) {
+        $next_year = $current_year;
+        $next_month = $current_month+1;
+        if($next_month>12){
+            $next_year=$next_year+1;
+            $next_month=1;
+        }
+        return $next_year;
+    }
+}
+if (! function_exists('get_next_month')) {
+    function get_next_month($current_year,$current_month) {
+        $next_year = $current_year;
+        $next_month = $current_month+1;
+        if($next_month>12){
+            $next_year=$next_year+1;
+            $next_month=1;
+        }
+        return $next_month;
+    }
+}
 
 
 
