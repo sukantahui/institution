@@ -364,8 +364,8 @@ class TransactionController extends ApiController
                 ->orderBy('fees_year', 'desc')
                 ->orderBy('fees_month', 'desc')
                 ->first();
-            $fees_year = (int)$LastMonthlyEntry->fees_year;
-            $fees_month = (int)$LastMonthlyEntry->fees_month;
+            $fees_year = get_next_year((int)$LastMonthlyEntry->fees_year,(int)$LastMonthlyEntry->fees_month);
+            $fees_month = get_next_month((int)$LastMonthlyEntry->fees_year,(int)$LastMonthlyEntry->fees_month);
 
         }
         DB::beginTransaction();
