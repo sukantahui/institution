@@ -354,8 +354,8 @@ class TransactionController extends ApiController
             $this->errorResponse("Account Already up to date ",406);
         }
         if($monthly_fees_charged_count==0){
-            $transaction_month = StudentCourseRegistration::select(DB::raw('month(effective_date) as current_mont'))->where('id',9)->first();
-            $transaction_year = StudentCourseRegistration::select(DB::raw('year(effective_date) as current_year'))->where('id',9)->first();
+            $fees_month = (int)StudentCourseRegistration::select(DB::raw('month(effective_date) as current_month'))->where('id',9)->first()->current_month;
+            $fees_year = (int)StudentCourseRegistration::select(DB::raw('year(effective_date) as current_year'))->where('id',9)->first()->current_year;
         }else{
             $LastMonthlyEntry = TransactionMaster::whereHas('transaction_details',function($query){
                 $query->where('ledger_id',9);
@@ -364,7 +364,8 @@ class TransactionController extends ApiController
                 ->orderBy('fees_year', 'desc')
                 ->orderBy('fees_month', 'desc')
                 ->first();
-            $this->successResponse($LastMonthlyEntry);
+            $fees_year = (int)$LastMonthlyEntry->fees_year;
+            $fees_month = (int)$LastMonthlyEntry->fees_month;
 
         }
         DB::beginTransaction();
@@ -401,8 +402,8 @@ class TransactionController extends ApiController
             $transaction_master->transaction_date = $input_transaction_master->transactionDate;
             $transaction_master->student_course_registration_id = $input_transaction_master->studentCourseRegistrationId;
             $transaction_master->comment = $input_transaction_master->comment;
-            $transaction_master->fees_year = $input_transaction_master->feesYear;
-            $transaction_master->fees_month = $input_transaction_master->feesMonth;
+            $transaction_master->fees_year = $fees_year;
+            $transaction_master->fees_month = $fees_month;
             $transaction_master->save();
             $result_array['transaction_master']=$transaction_master;
             $transaction_details=array();
