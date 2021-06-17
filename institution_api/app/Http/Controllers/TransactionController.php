@@ -336,10 +336,37 @@ class TransactionController extends ApiController
             return response()->json(['position'=>1,'success'=>0,'data'=>null,'error'=>$validator->messages()], 406,[],JSON_NUMERIC_CHECK);
         }
 
+        //calculating number of monthly fees charged for this SCR
         $monthly_fees_charged_count=TransactionMaster::whereHas('transaction_details',function($query){
             $query->where('ledger_id',9);
         })->where('student_course_registration_id',$input_transaction_master->studentCourseRegistrationId)->where('voucher_type_id',9)->count();
 
+        //getting effective date, validation for effective date already done
+        $effective_date = StudentCourseRegistration::find($input_transaction_master->studentCourseRegistrationId)->effective_date;
+
+        //getting notional monthly fees charge
+        $notional_monthly_fees_charge = StudentCourseRegistration::select(DB::raw("TIMESTAMPDIFF(MONTH, effective_date, CURDATE())+1 as notional_fees_charge"))
+                                        ->where('id',$input_transaction_master->studentCourseRegistrationId)
+                                        ->where('is_completed',0)
+                                        ->where('is_started',1)
+                                        ->first();
+        if($monthly_fees_charged_count>=$notional_monthly_fees_charge){
+            $this->errorResponse("Account Already up to date ",406);
+        }
+        if($monthly_fees_charged_count==0){
+            $transaction_month = StudentCourseRegistration::select(DB::raw('month(effective_date) as current_mont'))->where('id',9)->first();
+            $transaction_year = StudentCourseRegistration::select(DB::raw('year(effective_date) as current_year'))->where('id',9)->first();
+        }else{
+            $LastMonthlyEntry = TransactionMaster::whereHas('transaction_details',function($query){
+                $query->where('ledger_id',9);
+            })->where('student_course_registration_id',$input_transaction_master->studentCourseRegistrationId)
+                ->where('voucher_type_id',9)
+                ->orderBy('fees_year', 'desc')
+                ->orderBy('fees_month', 'desc')
+                ->first();
+            $this->successResponse($LastMonthlyEntry);
+
+        }
         DB::beginTransaction();
         try{
             $result_array=array();
