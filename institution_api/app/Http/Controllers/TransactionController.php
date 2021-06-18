@@ -346,13 +346,13 @@ class TransactionController extends ApiController
         $effective_date = StudentCourseRegistration::find($input_transaction_master->studentCourseRegistrationId)->effective_date;
 
         //getting notional monthly fees charge
-        $notional_monthly_fees_charge = StudentCourseRegistration::select(DB::raw("TIMESTAMPDIFF(MONTH, effective_date, CURDATE())+1 as notional_fees_charge"))
+        $notional_monthly_fees_charge_count = StudentCourseRegistration::select(DB::raw("TIMESTAMPDIFF(MONTH, effective_date, CURDATE())+1 as notional_fees_charge"))
                                         ->where('id',$input_transaction_master->studentCourseRegistrationId)
                                         ->where('is_completed',0)
                                         ->where('is_started',1)
                                         ->first()->notional_fees_charge;
 
-        if($monthly_fees_charged_count>$notional_monthly_fees_charge){
+        if($monthly_fees_charged_count>$notional_monthly_fees_charge_count){
             return $this->errorResponse("Account Already up to date ",406);
         }
         if($monthly_fees_charged_count==0){
@@ -427,7 +427,7 @@ class TransactionController extends ApiController
             return response()->json(['success'=>0,'exception'=>$e->getMessage()], 500);
         }
 
-        return response()->json(['success'=>1,'test'=>$monthly_fees_charged_count,'test2'=>$notional_monthly_fees_charge,'data'=>new TransactionMasterResource($result_array['transaction_master'])], 200,[],JSON_NUMERIC_CHECK);
+        return response()->json(['success'=>1,'monthly_fees_charged_count'=>$monthly_fees_charged_count,'notional_monthly_fees_charge_count'=>$notional_monthly_fees_charge_count,'data'=>new TransactionMasterResource($result_array['transaction_master'])], 200,[],JSON_NUMERIC_CHECK);
     }
 
     //fees received
