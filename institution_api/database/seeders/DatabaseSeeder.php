@@ -560,5 +560,12 @@ class DatabaseSeeder extends Seeder
         StudentCourseRegistration::create(['ledger_id'=>13,'course_id'=>4,'reference_number'=>7,'base_fee'=>6900,'discount_allowed'=>5200,'joining_date'=>'2021-02-2','effective_date'=>'2021-03-01','is_started'=>1,'is_completed'=>0]);
         StudentCourseRegistration::create(['ledger_id'=>13,'course_id'=>4,'reference_number'=>8,'base_fee'=>6900,'discount_allowed'=>5200,'joining_date'=>'2021-02-2',]);
         StudentCourseRegistration::create(['ledger_id'=>17,'course_id'=>4,'reference_number'=>9,'base_fee'=>350,'discount_allowed'=>0,'joining_date'=>'2021-02-2','effective_date'=>'2021-03-01','is_started'=>1,'is_completed'=>0]);
+        StudentCourseRegistration::create(['ledger_id'=>11,'course_id'=>5,'reference_number'=>10,'base_fee'=>1350,'discount_allowed'=>0,'joining_date'=>'2021-04-02','effective_date'=>'2021-04-10','is_started'=>1,'is_completed'=>0]);
+        StudentCourseRegistration::create(['ledger_id'=>15,'course_id'=>5,'reference_number'=>11,'base_fee'=>1350,'discount_allowed'=>0,'joining_date'=>'2021-03-02','effective_date'=>'2021-03-10','is_started'=>1,'is_completed'=>0]);
+        StudentCourseRegistration::create(['ledger_id'=>18,'course_id'=>14,'reference_number'=>12,'base_fee'=>2500,'discount_allowed'=>0,'joining_date'=>'2021-05-18','effective_date'=>'2021-05-20','is_started'=>1,'is_completed'=>0]);
+        StudentCourseRegistration::create(['ledger_id'=>20,'course_id'=>11,'reference_number'=>13,'base_fee'=>3000,'discount_allowed'=>0,'joining_date'=>'2021-01-18','effective_date'=>'2021-03-20','is_started'=>1,'is_completed'=>0]);
+        StudentCourseRegistration::create(['ledger_id'=>16,'course_id'=>9,'reference_number'=>14,'base_fee'=>1200,'discount_allowed'=>0,'joining_date'=>'2021-06-01','effective_date'=>'2021-06-05','is_started'=>1,'is_completed'=>0]);
+        StudentCourseRegistration::create(['ledger_id'=>14,'course_id'=>9,'reference_number'=>15,'base_fee'=>1500,'discount_allowed'=>0,'joining_date'=>'2021-05-01','effective_date'=>'2021-06-10','is_started'=>1,'is_completed'=>0]);
+        StudentCourseRegistration::create(['ledger_id'=>19,'course_id'=>12,'reference_number'=>16,'base_fee'=>2600,'discount_allowed'=>100,'joining_date'=>'2021-04-18','effective_date'=>'2021-05-05','is_started'=>1,'is_completed'=>0]);
     }
 }

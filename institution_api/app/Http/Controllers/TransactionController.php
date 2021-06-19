@@ -352,7 +352,7 @@ class TransactionController extends ApiController
                                         ->where('is_started',1)
                                         ->first()->notional_fees_charge;
 
-        if($monthly_fees_charged_count>$notional_monthly_fees_charge_count){
+        if($monthly_fees_charged_count>$notional_monthly_fees_charge_count-1){
             return $this->errorResponse("Account Already up to date ",406);
         }
         if($monthly_fees_charged_count==0){
