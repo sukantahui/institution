@@ -82,6 +82,9 @@ class UserController extends ApiController
     function getAllUsers(Request $request){
         return User::get();
     }
+	function authenticationError(){
+        return $this->errorResponse('Credential does not matched',401);
+    }
     function logout(Request $request){
         $result = $request->user()->currentAccessToken()->delete();
         return response()->json(['success'=>$result,'data'=>null, 'message'=>'Token revoked'], 200,[],JSON_NUMERIC_CHECK);
