@@ -1,57 +1,53 @@
-import {DEFAULT_CURRENCY_CODE, NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DateAdapter } from '@angular/material/core';
-import { DateFormat } from './date-format';
-import {HashLocationStrategy, LocationStrategy} from '@angular/common';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatSliderModule} from '@angular/material/slider';
-import {MatListModule} from '@angular/material/list';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+// import { MatToolbarModule } from '@angular/material/toolbar';
+// import { MatMenuModule } from '@angular/material/menu';
+// import { MatIconModule} from '@angular/material/icon';
+// import { MatDividerModule } from '@angular/material/divider';
+// import { MatListModule } from '@angular/material/list';
+// import { MatCardModule } from '@angular/material/card';
+// import { MatTabsModule } from '@angular/material/tabs';
+// import { NgChartsModule } from 'ng2-charts';
+// import { MatInputModule } from '@angular/material/input';
+// import { MatButtonModule } from '@angular/material/button';
 
-import {NgxPrinterModule} from 'ngx-printer';
-import {HomeModule} from './pages/home/home.module';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
-import {AuthInterceptor} from './services/auth.interceptor';
-// import {NgxPrintModule} from "ngx-print";
-
-
-
-
-
+// import { ReactiveFormsModule } from '@angular/forms';
+// import { SidenavComponent } from './sidenav/sidenav.component';
+import {SidenavModule} from "./sidenav/sidenav.module";
+import {HeaderModule} from "./header/header.module";
 
 @NgModule({
   declarations: [
     AppComponent,
+    // SidenavComponent,
   ],
   imports: [
-    // BrowserModule,
+    BrowserModule,
     AppRoutingModule,
     NgbModule,
-    NgxPrinterModule.forRoot({printOpenWindow: false}),
     BrowserAnimationsModule,
-    MatMenuModule,
     MatSidenavModule,
-    MatSliderModule,
-    MatListModule,
-    MatToolbarModule,
-    MatIconModule,
-    HomeModule,
+    // MatToolbarModule,
+    // MatMenuModule,
+    // MatIconModule,
+    // MatDividerModule,
+    // MatListModule,
+    // MatCardModule,
+    // MatTabsModule,
+    // NgChartsModule,
+    // MatInputModule,
+    // MatButtonModule,
+    // ReactiveFormsModule,
+    SidenavModule,
+    HeaderModule
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
-              {provide: LocationStrategy, useClass: HashLocationStrategy},
-              {provide: DateAdapter, useClass: DateFormat}, {provide: DEFAULT_CURRENCY_CODE, useValue: 'INR'} ],
-
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-  constructor(private dateAdapter: DateAdapter<Date>) {
-    dateAdapter.setLocale('en-in'); // DD/MM/YYYY
-  }
-}
+export class AppModule { }
